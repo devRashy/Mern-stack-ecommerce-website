@@ -6,7 +6,7 @@ const app = express();
 
 //routes
 const userRoutes = require('./routes/user');
-const { createIndexes } = require("./models/User");
+const User = require("./models/User");
 
 //  environment variable
 env.config()
@@ -21,7 +21,11 @@ mongoose.connect('mongodb://localhost:27017/ecommerce',
     console.log("database connected")
 })
 
-app.use(bodyParser)
+// User.remove({}, (err) => {
+//     console.log("model remove successfully")
+// })
+
+app.use(bodyParser.json())
 app.use('/api', userRoutes)
 
 

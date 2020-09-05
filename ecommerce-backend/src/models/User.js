@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
         trim: true,
         unique: true,
         index: true,
-        lowercase: true
+        lowercase: true,
     },
     email: {
         type:String,
@@ -49,6 +49,7 @@ const userSchema = new mongoose.Schema({
 
 userSchema.virtual('password')
 .set(function(password){
+
     this.hash_password = bcrypt.hashSync(password, 10);
 })
 
