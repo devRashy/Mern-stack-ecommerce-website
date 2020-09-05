@@ -6,7 +6,8 @@ const app = express();
 
 //routes
 const userRoutes = require('./routes/user');
-const User = require("./models/User");
+const adminRoutes = require('./routes/admin/admin.js');
+
 
 //  environment variable
 env.config()
@@ -25,8 +26,9 @@ mongoose.connect('mongodb://localhost:27017/ecommerce',
 //     console.log("model remove successfully")
 // })
 
-app.use(bodyParser.json())
-app.use('/api', userRoutes)
+app.use(bodyParser.json());
+app.use('/api', userRoutes);
+app.use('/api', adminRoutes);
 
 
 app.listen(process.env.PORT, () => {
