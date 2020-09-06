@@ -1,12 +1,17 @@
 import React from 'react'
+import { Container } from 'react-bootstrap'
 import Header from "../Headers"
+
 
 export default function Layout(props) {
     return (
         <div>
            <>
             <Header />
-            {props.children}
+            <Container>
+                {props.children}
+            </Container>
+            
            </> 
         </div>
     )
